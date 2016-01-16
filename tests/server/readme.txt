@@ -1,0 +1,1 @@
+use android mobile phone as a server
