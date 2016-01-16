@@ -3,6 +3,7 @@ package com.appserversrv.activities;
 import com.serverservice.test.R;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	
@@ -41,5 +43,21 @@ public class MainActivity extends Activity {
 					 stopService(intent);
 				}});
         }
+        //获取wifi服务  
+        android.net.wifi.WifiManager wifimanager = (android.net.wifi.WifiManager) getSystemService(Context.WIFI_SERVICE);  
+        //判断wifi是否开启  
+        if (!wifimanager.isWifiEnabled()) {  
+        	wifimanager.setWifiEnabled(true);    
+        }  
+        android.net.wifi.WifiInfo wifiinfo = wifimanager.getConnectionInfo();       
+        int ipAddress = wifiinfo.getIpAddress();   
+        String ip = intToIp(ipAddress);   
+        TextView et = (TextView)findViewById(R.id.txtTitle);
+        if (null != et) {
+            et.setText(ip);        	
+        }  
     }
+    private String intToIp(int i) {  
+        return (i&0xFF) + "." + ((i>>8)&0xFF) + "." + ((i>>16)&0xFF) + "." + (i>>24&0xFF);  
+   }   
 }
