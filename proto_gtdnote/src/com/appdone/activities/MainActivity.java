@@ -1,4 +1,6 @@
-package com.appdone;
+package com.appdone.activities;
+
+import com.appdone.Res;
 
 import base.ui.BaseActivity;
 

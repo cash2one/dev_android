@@ -1,5 +1,5 @@
 package com.appdone.service;
 
-public class clockservice {
+public class ClockService {
 
 }
