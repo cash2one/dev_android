@@ -3,11 +3,11 @@ package com.ui.activities;
 import module.res.ComRes;
 import base.ui.BaseActivity;
 
-public class UserUnlockActivity extends BaseActivity {
+public class AppGuideActivity extends BaseActivity {
 
     @Override
     protected void onCreate(android.os.Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(ComRes.layoutId_UserUnlockActivity());
+        setContentView(ComRes.layoutId_AppGuideActivity());
     }
 }
