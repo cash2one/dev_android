@@ -1,4 +1,4 @@
-package com.done;
+package com.appdone;
 
 import base.app.AppInst;
 import base.utils.log;
