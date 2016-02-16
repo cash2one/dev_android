@@ -1,0 +1,3 @@
+https://github.com/square/okhttp.git
+
+https://github.com/square/okio.git
