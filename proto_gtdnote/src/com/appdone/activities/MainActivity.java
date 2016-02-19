@@ -3,6 +3,7 @@ package com.appdone.activities;
 import com.appdone.Res;
 import com.done.R;
 import com.ui.activities.AppEmptyActivity;
+import com.ui.activities.WebViewActivity;
 
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,7 +21,8 @@ public class MainActivity extends BaseActivity {
 
 				@Override
 				public void onClick(View v) {
-					MainActivity.this.redirectToActivity(AppEmptyActivity.class);
+					//MainActivity.this.redirectToActivity(AppEmptyActivity.class);
+					MainActivity.this.redirectToActivity(WebViewActivity.class);
 				}        		
         	});
         }

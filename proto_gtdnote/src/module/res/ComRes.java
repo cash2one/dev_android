@@ -51,4 +51,9 @@ public class ComRes {
 	public static int layoutId_WebViewActivity() {
 		return R.layout.activity_webview;
 	}
+
+	public static int layoutId_rootView() {
+		return R.id.rootview;
+	}
+	
 }
