@@ -64,13 +64,24 @@ public class WebViewEx extends android.webkit.WebView {
         //settings.setAppCachePath(path);
         this.addJavascriptInterface(this, "webview");//对应js中的test.xxx
         
-        CookieSyncManager.createInstance(mContext);
+        //CookieSyncManager.createInstance(mContext);
         CookieManager cookiemgr = CookieManager.getInstance();
         cookiemgr.setAcceptCookie(true);
+        String url = "http://www.zhijiaoyi.com/";
+        String cookies = cookiemgr.getCookie(url);
+        cookiemgr.setCookie(url, cookies);
         CookieSyncManager.getInstance().sync();
-        //cookiemgr.setCookie(url, cookies);
     }
-
+    
+    public static void synCookies(Context context, String url, String cookies) {
+        CookieSyncManager.createInstance(context);
+        CookieManager cookiemgr = CookieManager.getInstance();
+        cookiemgr.setAcceptCookie(true);
+        cookiemgr.removeSessionCookie();//移除
+        cookiemgr.setCookie(url, cookies);//指定要修改的cookies
+        CookieSyncManager.getInstance().sync();
+    }
+    
     @Override
     public void setWebViewClient(WebViewClient client) {
         viewClient = (WebViewClientEx)client;
