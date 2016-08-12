@@ -1,0 +1,18 @@
+1. apktool.jar -q d -r -f hepaidai.apk
+2. java -jar apktool.jar b hepaidai_1.0.2
+3. copy .\hepaidai_1.0.2\dist\hepaidai_1.0.2.apk .\hepaidai_1.0.2.apk
+4. del .\hepaidai_1.0.2\dist\hepaidai_1.0.2.apk
+5. jarsigner -verbose -digestalg SHA1 -sigalg SHA1withRSA -tsa https://timestamp.geotrust.com/tsa -verbose -keystore hepaidai.keystore -storepass hepaidai -keypass hepaidai -signedjar hepaidai_1.0.2_signed.apk hepaidai_1.0.2.apk hepaidai.keystore
+6. zipalign -v 4 hepaidai_1.0.2_signed.apk hepaidai_1.0.2_release.apk
+7. del .\hepaidai_1.0.2.apk
+8. del .\hepaidai_1.0.2_signed.apk
+9. ren hepaidai_1.0.2_release.apk hepaidai_1.0.2_channel.apk
+
+
+
+
+
+
+
+
+
