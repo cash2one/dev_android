@@ -16,7 +16,8 @@ ren hepaidai_1.0.2_release.apk hepaidai_1.0.2_%1.apk
 del .\hepaidai_1.0.2_release.apk /q
 
 :end
-echo make channel finished
+ping -n 2 127.0.0.1 > nul  
+echo make channel %1 finished
 
 
 
