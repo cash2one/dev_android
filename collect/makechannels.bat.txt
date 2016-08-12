@@ -1,0 +1,3 @@
+call makechannel.bat abc
+call makechannel.bat def
+call makechannel.bat test

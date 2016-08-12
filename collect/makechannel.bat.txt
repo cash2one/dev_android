@@ -1,0 +1,26 @@
+@echo off
+if "%1"=="" goto end
+
+echo make channel %1 begin
+@echo off
+del .\hepaidai_1.0.2\assets\channel_*.*
+echo %1 >.\hepaidai_1.0.2\assets\channel_%1
+java -jar apktool.jar b hepaidai_1.0.2
+copy .\hepaidai_1.0.2\dist\hepaidai_1.0.2.apk .\hepaidai_1.0.2.apk
+del .\hepaidai_1.0.2\dist\hepaidai_1.0.2.apk /q
+jarsigner -verbose -digestalg SHA1 -sigalg SHA1withRSA -tsa https://timestamp.geotrust.com/tsa -verbose -keystore hepaidai.keystore -storepass hepaidai -keypass hepaidai -signedjar hepaidai_1.0.2_signed.apk hepaidai_1.0.2.apk hepaidai.keystore
+zipalign -v 4 hepaidai_1.0.2_signed.apk hepaidai_1.0.2_release.apk
+del .\hepaidai_1.0.2.apk /q
+del .\hepaidai_1.0.2_signed.apk /q
+ren hepaidai_1.0.2_release.apk hepaidai_1.0.2_%1.apk
+del .\hepaidai_1.0.2_release.apk /q
+
+:end
+echo make channel finished
+
+
+
+
+
+
+
